@@ -77,7 +77,7 @@ ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(command-not-found bgnotify aliases man docker docker-compose dotenv encode64 extract gcloud gitfast git-extras git-prompt colored-man-pages catimg git git-flow z thefuck universalarchive urltools vscode wd common-aliases colorize z zsh-autosuggestions zsh-interactive-cd web-search copydir copyfile copybuffer dirhistory zsh_reload last-working-dir history history-substring-search jsontools node npm nvm postgres safe-paste kubectl kubectx shrink-path singlechar sublime systemadmin terraform themes transfer mvn gradle helm isodate jira httpie)
+plugins=(command-not-found bgnotify aliases man docker docker-compose dotenv encode64 extract gcloud gitfast git-extras git-prompt colored-man-pages catimg git git-flow z thefuck universalarchive urltools vscode wd common-aliases colorize z zsh-autosuggestions zsh-interactive-cd web-search copypath copyfile copybuffer dirhistory zsh_reload last-working-dir history history-substring-search jsontools node npm nvm postgres safe-paste kubectl kubectx shrink-path singlechar sublime systemadmin terraform themes transfer mvn gradle helm isodate jira httpie)
 
 source $ZSH/oh-my-zsh.sh
 

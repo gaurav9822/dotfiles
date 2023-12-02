@@ -77,7 +77,7 @@ ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(command-not-found bgnotify aliases man docker docker-compose dotenv encode64 extract gcloud gitfast git-extras git-prompt colored-man-pages catimg git git-flow z thefuck universalarchive urltools vscode wd common-aliases colorize z zsh-autosuggestions zsh-interactive-cd web-search copypath copyfile copybuffer dirhistory last-working-dir history history-substring-search jsontools node npm nvm postgres safe-paste kubectl kubectx shrink-path singlechar sublime systemadmin terraform themes transfer mvn gradle helm isodate jira httpie)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions sudo command-not-found extract web-search z ohmyzsh-full-autoupdate bgnotify aliases man docker docker-compose dotenv encode64 extract gcloud gitfast git-extras git-prompt colored-man-pages catimg git-flow thefuck universalarchive urltools vscode wd common-aliases colorize zsh-interactive-cd web-search copypath copyfile copybuffer dirhistory last-working-dir history history-substring-search jsontools node npm nvm postgres safe-paste kubectl kubectx shrink-path singlechar sublime systemadmin terraform themes transfer mvn gradle helm isodate jira httpie)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,9 +106,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 # Get External IP / Internet Speed
 alias myip="curl https://ipinfo.io/json" # or /ip for plain-text ip
-alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
 # Quickly serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
@@ -132,6 +132,7 @@ pbpaste() {
 }
 
 alias dl="cd ~/Downloads"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"
@@ -144,6 +145,51 @@ alias week='date +%V'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+alias c="clear"
+alias x="exit"
+alias e="code -n ~/ ~/.zshrc ~/.aliases ~/.colors ~/.hooks"
+alias r="source ~/.zshrc"
+
+alias h="history -10" # last 10 history commands
+alias hc="history -c" # clear history
+alias hg="history | grep " # +command
+
+alias ag="alias | grep " # +command
+
+
+
+# https://htop.dev/
+# sudo apt install htop / brew install htop
+alias t="htop"
+
+# https://dev.yorhel.nl/ncdu
+# sudo apt install ncdu / brew install ncdu
+alias d="ncdu --exclude /mnt --color dark" # +path
+
+# https://www.speedtest.net/apps/cli
+alias st="speedtest"
+
+# https://github.com/sindresorhus/clipboard-cli
+# npm install -g clipboard-cli
+alias cb="clipboard"
+
+alias gcg="git config --edit --global"
+alias gcl="git config --edit --local"
+
+alias gcae="git commit --allow-empty -m " # <message>
+
+export PATH="$HOME/.helpers/b64/:$PATH"
+alias b2f="b64_to_file"
+alias f2b="file_to_b64"
+
+
+if [ -x "$(command -v exa)" ]; then
+    alias ls="exa"
+    alias la="exa --long --all --group"
+fi
+
+
 
 . /home/gaurav/z.sh
 

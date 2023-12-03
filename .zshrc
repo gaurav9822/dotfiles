@@ -107,11 +107,68 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Get External IP / Internet Speed
 alias myip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 
 # Quickly serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
+
+alias dl="cd ~/Downloads"
+alias mcis='mvn clean install -DskipTests=true'
+alias mci='mvn clean install'
+alias mcc='mvn clean compile'
+alias mc='mvn clean'
+alias clm2='rm -rf ~/.m2/repository/'
+alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias n="nano"
+alias m="mkdir"
+alias scz="source ~/.zshrc"
+alias subl="open -a 'sublime text'"
+
+# docker aliases
+alias d="docker"
+alias dps="docker ps"
+
+# macOS aliasses
+if [[ $OSTYPE == darwin* ]]; then
+alias flush='dscacheutil -flushcache'
+
+# Apps
+alias browse="open -a /Applications/Arc.app"
+fi
+
+alias distro='cat /etc/*-release'
+
+alias cl="clear"
+alias ex="exit"
+alias e="code -n ~/ ~/.zshrc ~/.aliases ~/.colors ~/.hooks"
+
+alias lsd="ls -lhF ${colorflag} | grep --color=never '^d'"
+alias week='date +%V'
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+alias h="history -10" # last 10 history commands
+alias hc="history -c" # clear history
+alias hg="history | grep " # +command
+alias ag="alias | grep " # +command
+alias t="htop"
+alias d="ncdu --exclude /mnt --color dark" # +path
+
+# https://www.speedtest.net/apps/cli
+alias st="speedtest"
+
+# https://github.com/sindresorhus/clipboard-cli
+alias cb="clipboard"
+
+alias gcg="git config --edit --global"
+alias gcl="git config --edit --local"
+alias gcae="git commit --allow-empty -m " # <message>
+
+export PATH="$HOME/.helpers/b64/:$PATH"
+alias b2f="b64_to_file"
+alias f2b="file_to_b64"
 
 pbcopy() {
   stdin=$(</dev/stdin);
@@ -131,64 +188,11 @@ pbpaste() {
   fi
 }
 
-alias dl="cd ~/Downloads"
-
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-  colorflag="--color"
-else # OS X `ls`
-  colorflag="-G"
-fi
-
-alias lsd="ls -lhF ${colorflag} | grep --color=never '^d'"
-alias week='date +%V'
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-alias c="clear"
-alias x="exit"
-alias e="code -n ~/ ~/.zshrc ~/.aliases ~/.colors ~/.hooks"
-alias r="source ~/.zshrc"
-
-alias h="history -10" # last 10 history commands
-alias hc="history -c" # clear history
-alias hg="history | grep " # +command
-
-alias ag="alias | grep " # +command
-
-
-
-# https://htop.dev/
-# sudo apt install htop / brew install htop
-alias t="htop"
-
-# https://dev.yorhel.nl/ncdu
-# sudo apt install ncdu / brew install ncdu
-alias d="ncdu --exclude /mnt --color dark" # +path
-
-# https://www.speedtest.net/apps/cli
-alias st="speedtest"
-
-# https://github.com/sindresorhus/clipboard-cli
-# npm install -g clipboard-cli
-alias cb="clipboard"
-
-alias gcg="git config --edit --global"
-alias gcl="git config --edit --local"
-
-alias gcae="git commit --allow-empty -m " # <message>
-
-export PATH="$HOME/.helpers/b64/:$PATH"
-alias b2f="b64_to_file"
-alias f2b="file_to_b64"
-
 
 if [ -x "$(command -v exa)" ]; then
     alias ls="exa"
     alias la="exa --long --all --group"
 fi
-
 
 
 . /home/gaurav/z.sh

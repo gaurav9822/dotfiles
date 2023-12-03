@@ -77,7 +77,7 @@ ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions sudo command-not-found extract web-search z ohmyzsh-full-autoupdate bgnotify aliases docker docker-compose dotenv encode64 extract gcloud gitfast git-extras git-prompt colored-man-pages catimg git-flow thefuck universalarchive urltools vscode common-aliases colorize zsh-interactive-cd web-search copypath copyfile copybuffer dirhistory last-working-dir history history-substring-search jsontools node npm nvm safe-paste kubectl kubectx shrink-path singlechar sublime systemadmin terraform themes transfer mvn gradle helm isodate jira httpie alias-finder)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions sudo command-not-found extract web-search z ohmyzsh-full-autoupdate bgnotify aliases docker docker-compose dotenv encode64 extract gcloud git gitfast git-commit git-extras git-prompt colored-man-pages git-flow thefuck universalarchive urltools vscode common-aliases colorize zsh-interactive-cd copypath copybuffer copyfile dirhistory last-working-dir history history-substring-search jsontools node npm nvm safe-paste kubectl kubectx shrink-path singlechar sublime systemadmin terraform themes transfer mvn gradle helm isodate jira httpie aws brew iterm2 macos minikube pre-commit redis-cli sdk spring sprunge ubuntu alias-finder autojump cp debian gas golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -166,34 +166,10 @@ alias gcg="git config --edit --global"
 alias gcl="git config --edit --local"
 alias gcae="git commit --allow-empty -m " # <message>
 
-export PATH="$HOME/.helpers/b64/:$PATH"
-alias b2f="b64_to_file"
-alias f2b="file_to_b64"
-
-pbcopy() {
-  stdin=$(</dev/stdin);
-  pbcopy="$(which pbcopy)";
-  if [[ -n "$pbcopy" ]]; then
-    echo "$stdin" | "$pbcopy"
-  else
-    echo "$stdin" | xclip -selection clipboard
-  fi
-}
-pbpaste() {
-  pbpaste="$(which pbpaste)";
-  if [[ -n "$pbpaste" ]]; then
-    "$pbpaste"
-  else
-    xclip -selection clipboard
-  fi
-}
-
-
 if [ -x "$(command -v exa)" ]; then
     alias ls="exa"
     alias la="exa --long --all --group"
 fi
-
 
 . /home/gaurav/z.sh
 

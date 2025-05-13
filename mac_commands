@@ -1,3 +1,25 @@
+#create and cd into a new directory
+take newdir
+
+#swap with last two dirs
+-
+
+#go back
+..
+
+#dns record
+dig google.com
+
+#top lines
+head data.csv
+
+#last lines
+tail data.csv
+
+#port scanner
+nmap google.com
+
+
 als <keyword(s)>
 j foo
 aws_profiles

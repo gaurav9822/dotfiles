@@ -1,23 +1,26 @@
-#create and cd into a new directory
+# create and cd into a new directory
 take newdir
 
-#swap with last two dirs
+# swap with last two dirs
 -
 
-#go back
+# go back
 ..
 
-#dns record
+# dns record
 dig google.com
 
-#top lines
+# top lines
 head data.csv
 
-#last lines
+# last lines
 tail data.csv
 
-#port scanner
+# port scanner
 nmap google.com
+
+#kill process
+npx kill-port 8080
 
 
 als <keyword(s)>
